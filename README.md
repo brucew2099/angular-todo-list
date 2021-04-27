@@ -1,1 +1,1 @@
-# angular_todo_list
+# angular-todo-list
