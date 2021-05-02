@@ -1,0 +1,23 @@
+<form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="Email" />
+    <mat-error *ngIf="Email?.invalid && Email?.touched">
+      Email is invalid
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Password</mat-label>
+    <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password"/>
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </button>
+    <mat-error *ngIf="Password?.invalid && Password?.touched">
+      Password is invalid
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <button mat-icon-button [disabled]="loginForm.pristine || loginForm.invalid" type="submit">Login</button>
+  </mat-form-field>
+</form>
