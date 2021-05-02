@@ -1,7 +1,21 @@
-#footer {
-  height: 88vh;
-}
-
 img {
   margin-bottom:4px;
+}
+
+.navMenu {
+  font-size:16px;
+}
+
+#secondBar {
+  height:5vh;
+  background-color:darkcyan;
+  padding-left:45%;
+}
+
+#loginLink {
+  padding-left:275%;
+}
+
+#footer {
+  height:83vh;
 }
