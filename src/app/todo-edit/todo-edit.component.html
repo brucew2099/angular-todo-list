@@ -1,0 +1,31 @@
+<mat-card class="todo-edit">
+  <mat-card-header id="card-header">
+    <mat-card-title>Update Item {{id}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="todoEditForm" id="todoEditForm">
+      <mat-form-field appearance="legacy" class="edit-id-input">
+        <mat-label>ID</mat-label>
+        <input matInput type="text" formControlName="Id" readonly [(ngModel)]="id">
+      </mat-form-field>
+      <br/><br/>
+      <mat-form-field appearance="legacy" class="edit-item-input">
+        <input matInput type="text" placeholder="Add new todo item..." formControlName="Item" required [(ngModel)]="item">
+        <mat-error *ngIf="f.Item.invalid && f.Item.touched">Todo Item is required</mat-error>
+      </mat-form-field>
+      <br/><br/>
+      <mat-form-field appearance="legacy" class="edit-importance-input">
+        <mat-label>Priority</mat-label>
+        <input matInput type="number" max=10 min=1 pattern="^[1-9]?[0]?$" placeholder="1" formControlName="Importance" required [(ngModel)]="importance">
+        <mat-error *ngIf="f.Importance.touched && f.Importance.errors?.required">
+          Priority is required
+        </mat-error>
+        <mat-error *ngIf="f.Importance.touched && (f.Importance.errors?.min || f.Importance.errors?.max)">
+          Priority should be between 1 to 10
+        </mat-error>
+      </mat-form-field>
+      <br/><br/>
+      <button mat-raised-button id="editButton" (click)="editTodo(todoEditForm.value)" [disabled]="todoEditForm.invalid">Edit</button>
+    </form>
+  </mat-card-content>
+</mat-card>

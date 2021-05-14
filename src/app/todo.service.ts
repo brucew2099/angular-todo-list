@@ -22,9 +22,19 @@ export class TodoService {
     return this.http.get<Todo[]>(`${this._uri}`);
   }
 
+  getTodo(id:number): Observable<Todo> {
+    return this.http.get<Todo>(`${this._uri}/${id}`);
+  }
+
   deleteTodo(id:number) {
     this.http.delete(`${this._uri}/${id}`).subscribe(res => {
       console.log('Delete is successful');
     })
+  }
+
+  editTodo(data: Todo) {
+    this.http.put(`${this._uri}/${data.Id}`, data).subscribe(res => {
+      console.log('Item updated successfully');
+    });
   }
 }

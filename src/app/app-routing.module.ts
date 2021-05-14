@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MemberLoginComponent } from './member-login/member-login.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoEditComponent } from './todo-edit/todo-edit.component';
 import { MemberRegisterAddComponent } from './member-register-add/member-register-add.component';
 import { MemberLogoutComponent } from './member-logout/member-logout.component';
 
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'todos',
     component: TodoListComponent,
+  },
+  {
+    path: 'todo/edit',
+    component: TodoEditComponent,
   },
   {
     path: 'register/create',

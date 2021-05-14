@@ -1,0 +1,46 @@
+#card-header {
+  margin-left: -5%;
+  margin-right: -9%;
+}
+
+mat-card-title {
+  width: 200%;
+  margin: 5% auto auto 20%;
+}
+
+#todoEditForm {
+  width: 100%;
+}
+
+.todo-edit {
+  max-width: 400px;
+  margin: 3% auto auto 38%;
+  min-height: 55%;
+}
+
+.edit-id-input {
+  height: auto;
+  width: 35%;
+  margin-top: 6%;
+}
+
+.edit-item-input {
+  height: auto;
+  width: 99%;
+}
+
+.edit-importance-input {
+  height: auto;
+  width: 35%;
+}
+
+#editButton {
+  float:right;
+  margin-right: 1%;
+  width: 19%;
+}
+
+.mat-row:hover {
+  background-color: #E8EAF6;
+  cursor: pointer;
+}

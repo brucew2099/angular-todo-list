@@ -42,3 +42,8 @@
   margin-right:9%;
   width: 19%;
 }
+
+.mat-row:hover {
+  background-color: #E8EAF6;
+  cursor: pointer;
+}

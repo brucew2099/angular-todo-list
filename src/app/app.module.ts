@@ -18,6 +18,7 @@ import { HelpDialogComponent } from './help-dialog/help-dialog.component';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { LocalStorageService } from './local-storage.service';
 import { MemberLogoutComponent } from './member-logout/member-logout.component';
+import { TodoEditComponent } from './todo-edit/todo-edit.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { MemberLogoutComponent } from './member-logout/member-logout.component';
     MemberRegisterAddComponent,
     TodoListComponent,
     HelpDialogComponent,
-    MemberLogoutComponent
+    MemberLogoutComponent,
+    TodoEditComponent
   ],
   imports: [
     BrowserModule,

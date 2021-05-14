@@ -59,9 +59,14 @@ export class TodoListComponent implements OnInit {
   }
 
   addTodo(data: Todo) {
-    data.Item = this.NewItem;
-    data.Importance = this.NewImportance;
-    this.tds.addTodo(data);
+    let obj:Todo = {
+      Id: 0,
+      Item: this.NewItem,
+      Importance: this.NewImportance,
+      Completed: false,
+    };
+
+    this.tds.addTodo(obj);
     setTimeout(() => {
       this.getAllTodos();
     }, 1000);
@@ -78,5 +83,9 @@ export class TodoListComponent implements OnInit {
     this.tds.getAllTodos().subscribe(res => {
       this.todos.data = res;
    });
+  }
+
+  editTodo(data:Todo) {
+    this.router.navigate(['/todo/edit'], {queryParams: {id: data.Id}});
   }
 }
