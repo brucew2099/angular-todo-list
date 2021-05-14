@@ -20,6 +20,7 @@ export class MemberRegisterAddComponent implements OnInit {
   message:string = '';
   hide:boolean = true;
   hidec:boolean = true;
+  existed:boolean = false;
   title:string = 'Password Help';
   header:string = 'Password should follow these rules:';
   content:string = `  (a) Contains at least 8 characters and at most 25 characters
@@ -54,7 +55,14 @@ export class MemberRegisterAddComponent implements OnInit {
   )};
 
   ngOnInit(): void {
-    this.ls.changeMessage('Welcome, ' + this.localstorage.getItem('firstname'));
+    if(this.localstorage.length() > 0 && this.localstorage.getItem('firstname') !== null) {
+      this.ls.changeMessage('Welcome, ' + this.localstorage.getItem('firstname'));
+    }
+    else {
+      if(this.localstorage.getItem('register') === null) {
+        this.router.navigate(['']);
+      }
+    }
   }
 
   get Email() {
@@ -89,10 +97,27 @@ export class MemberRegisterAddComponent implements OnInit {
       LastName: this.LastName
     };
 
-    this.rs.registerMember(registerObj).subscribe(data => {
-      this.message = 'Member registered successfully';
-      //this.router.navigate(['todos']);
-    })
+    this.rs.getAllRegisteredMembers().subscribe(members => {
+      for(let item in members) {
+        if(members[item].Email === this.Email) {
+          this.message = 'Registration Failed. Member already registered';
+          this.router.navigate(['/register/create']);
+          this.existed = true;
+          break;
+        }
+      }
+    });
+
+    setTimeout(() => {
+      if(!this.existed) {
+        this.rs.registerMember(registerObj).subscribe(data => {
+          this.message = 'Member registered successfully. Redirecting to Login...';
+          setTimeout(() => {
+            this.router.navigate(['']);
+          }, 3000);
+        });
+      }
+    },1000);
   }
 
   openDialog():void {

@@ -4,7 +4,7 @@
 
 #registerCard {
   max-width: 480px;
-  margin: 4% auto 10% auto
+  margin: 4% auto 10% 36%;
 }
 
 .password-width {
@@ -22,4 +22,9 @@
 .icon-right {
   margin-left: 40%;
   cursor: pointer;
+}
+
+#message {
+  margin-top: 1%;
+  margin-left: 38%;
 }

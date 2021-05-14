@@ -22,4 +22,8 @@ export class LocalStorageService {
   public clear() {
     localStorage.clear();
   }
+
+  public length():number {
+    return localStorage.length;
+  }
 }

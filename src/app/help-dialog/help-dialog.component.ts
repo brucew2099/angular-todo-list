@@ -20,6 +20,6 @@ export class HelpDialogComponent implements OnInit {
   }
 
   okDialog() {
-
+    this.dialogRef.close();
   }
 }

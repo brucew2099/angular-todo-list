@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TodoService } from '../todo.service';
 import { LoginService } from '../login.service';
 import { LocalStorageService } from '../local-storage.service';
@@ -23,7 +23,7 @@ export class TodoListComponent implements OnInit {
   paginator!: MatPaginator;
 
   constructor(private fb:FormBuilder, private tds:TodoService, private route:ActivatedRoute,
-      private ls:LoginService, private localstorage:LocalStorageService) {
+      private ls:LoginService, private localstorage:LocalStorageService, private router:Router) {
     this.todoForm = this.fb.group({
       NewItem: ['', [Validators.required]],
       NewImportance: ['', [Validators.required, Validators.maxLength(2), Validators.pattern('^[1-9]?[0]?$'),
@@ -32,11 +32,18 @@ export class TodoListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllTodos();
-    setTimeout(() => {
-      this.ls.changeMessage('Welcome, ' + this.localstorage.getItem('firstname'));
-    }, 1000);
-    this.todos.paginator = this.paginator;
+    if(this.localstorage.length() > 0 && this.localstorage.getItem('firstname') !== null) {
+      this.getAllTodos();
+      setTimeout(() => {
+        this.ls.changeMessage('Welcome, ' + this.localstorage.getItem('firstname'));
+      }, 1000);
+      this.todos.paginator = this.paginator;
+    }
+    else {
+      if(this.localstorage.getItem('register') === null) {
+        this.router.navigate(['']);
+      }
+    }
   }
 
   get NewItem() {

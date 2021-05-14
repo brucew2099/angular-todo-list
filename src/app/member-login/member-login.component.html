@@ -1,4 +1,4 @@
-<h2>{{errorMessage}}</h2>
+<h2 class="error" id="errorMessage">{{errorMessage}}</h2>
 <mat-card id="loginCard">
   <mat-card-title>
     Login
@@ -23,7 +23,7 @@
         <mat-error *ngIf="Email.invalid">{{getPasswordErrorMessage()}}</mat-error>
       </mat-form-field>
       <br/><br/>
-      <button mat-raised-button color="warn" [routerLink]="'/register/create'" id="registerButton">Register</button>
+      <button mat-raised-button color="warn" (click)="register()" id="registerButton">Register</button>
       <button mat-raised-button color="primary" (click)="login()" [disabled]="loginForm.invalid">Login</button>
     </form>
   </mat-card-content>

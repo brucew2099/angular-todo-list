@@ -66,6 +66,11 @@ export class MemberLoginComponent implements OnInit {
     })
   }
 
+  register() {
+    this.localstorage.setItem('register', 'true');
+    this.router.navigate(['/register/create']);
+  }
+
   login() {
     this.getAllMembers();
 
@@ -83,7 +88,7 @@ export class MemberLoginComponent implements OnInit {
         }
       }
       if(!success) {
-        this.message = 'Login Unsuccessful';
+        this.errorMessage = 'Login Unsuccessful';
         this.localstorage.setItem('loggedin', 'false');
       }
     }, 1000);
@@ -107,6 +112,7 @@ export class MemberLoginComponent implements OnInit {
     if(this.Password.hasError('required')) {
       return 'Password is required';
     }
-    return this.Password.hasError('Password') ? 'Password is not valid' : '';
+    return this.Password.hasError('Password') ?
+      'Password is not valid. Please click on <mat-icon class="material-icons md-14">help</mat-icon> for further information' : '';
   }
 }

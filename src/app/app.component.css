@@ -3,7 +3,7 @@ img {
 }
 
 mat-sidenav {
-  width: 7%;
+  width: 9%;
 }
 
 .navMenu {
@@ -24,6 +24,10 @@ mat-sidenav {
   height:73vh;
 }
 
-#rightScreen {
-  margin-left: 525%;
+#welcome {
+  width: 100%;
+}
+
+.rightScreen {
+  float: right;
 }
