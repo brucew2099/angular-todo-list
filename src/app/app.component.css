@@ -2,6 +2,10 @@ img {
   margin-bottom:4px;
 }
 
+mat-sidenav {
+  width: 7%;
+}
+
 .navMenu {
   font-size:16px;
 }
@@ -9,13 +13,17 @@ img {
 #secondBar {
   height:5vh;
   background-color:darkcyan;
-  padding-left:45%;
+  padding-left:46%;
 }
 
 #loginLink {
-  padding-left:450%;
+  padding-left:auto;
 }
 
 #footer {
-  height:83vh;
+  height:73vh;
+}
+
+#rightScreen {
+  margin-left: 525%;
 }

@@ -1,0 +1,25 @@
+#loginCard {
+  max-width: 240px;
+  margin: 7% auto auto 43%
+}
+
+#registerButton {
+  margin-right: 10px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.password-width {
+  width: 83%;
+}
+
+.error {
+  color: red;
+}
+
+.icon-right {
+  margin-left:56%;
+  cursor: pointer;
+}

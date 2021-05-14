@@ -4,19 +4,13 @@ export default class Todo {
   Id:number = 0;
   Item:string = '';
   Category:string = '';
-  Done:boolean = false;
+  Completed:boolean = false;
   Importance:number = 0;
-  ForDate:Date = new Date();
-  Who:string = '';
 
-  constructor(Id:number, Item:string, Category:string,
-      Done:boolean, Importance:number, ForDate:Date, Who:string) {
+  constructor(Id:number, Item:string, Category:string, Completed:boolean, Importance:number) {
     this.Id = Id;
     this.Item = Item;
-    this.Category = Category;
-    this.Done = Done;
+    this.Completed = Completed;
     this.Importance = Importance;
-    this.ForDate = ForDate;
-    this.Who = Who;
   }
 }

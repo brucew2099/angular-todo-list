@@ -1,1 +1,63 @@
-<p>member-register-add works!</p>
+<h2>{{message}}</h2>
+<mat-card id="registerCard">
+  <mat-card-title>
+    Member Registration
+    <mat-icon class="material-icons md-24 icon-right" (click)="openDialog();" title="Password Help">help</mat-icon>
+  </mat-card-title>
+  <br/>
+  <mat-card-content>
+    <form [formGroup]="registerForm">
+      <mat-form-field class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="Email" required>
+      </mat-form-field>
+      <mat-error *ngIf="f.Email.invalid && f.Email.touched">Email is invalid</mat-error>
+      <br/><br/>
+      <mat-form-field class="password-width">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" required>
+        <mat-error *ngIf="f.Password.invalid && f.Password.touched">Password is invalid</mat-error>
+      </mat-form-field>
+      <button mat-icon-button matSuffix (click)="hide=!hide" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide" required>
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <br/><br/>
+      <mat-form-field class="password-width">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput [type]="hidec ? 'password' : 'text'" formControlName="Confirmed" required>
+        <mat-error *ngIf="f.Confirmed.touched && f.Confirmed.errors?.invalid">
+          Password is invalid
+        </mat-error>
+        <mat-error *ngIf="f.Confirmed.touched && f.Confirmed.errors?.required">
+          Password is required
+        </mat-error>
+        <mat-error *ngIf="f.Confirmed.touched && f.Confirmed.errors?.ConfirmedValidator">
+          Passwords do not match
+        </mat-error>
+      </mat-form-field>
+      <button mat-icon-button matSuffix (click)="hidec=!hidec" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidec">
+        <mat-icon>{{hidec ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+      <br/><br/>
+      <mat-form-field class="full-width">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="FirstName" required>
+        <mat-error *ngIf="f.FirstName.invalid && f.FirstName.touched">
+          First Name is invalid
+        </mat-error>
+      </mat-form-field>
+      <br/><br/>
+      <mat-form-field class="full-width">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="LastName" required>
+        <mat-error *ngIf="f.LastName.invalid && f.LastName.touched">
+          Last Name is invalid
+        </mat-error>
+      </mat-form-field>
+      <br/><br/><br/>
+      <button mat-raised-button color="primary" (click)="register()" [disabled]="registerForm.invalid" id="registerButton">Register</button>
+    </form>
+  </mat-card-content>
+</mat-card>

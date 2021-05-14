@@ -1,0 +1,25 @@
+.full-width {
+  width: 97%;
+}
+
+#registerCard {
+  max-width: 480px;
+  margin: 4% auto 10% auto
+}
+
+.password-width {
+  width: 91%;
+}
+
+.error {
+  color: red;
+}
+
+#registerButton {
+  margin-right: 10px;
+}
+
+.icon-right {
+  margin-left: 40%;
+  cursor: pointer;
+}

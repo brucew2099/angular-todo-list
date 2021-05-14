@@ -1,23 +1,30 @@
-<form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
-  <mat-form-field appearance="legacy">
-    <mat-label>Email</mat-label>
-    <input matInput type="email" formControlName="Email">
-    <mat-error *ngIf="Email?.invalid && Email?.touched">
-      Email is invalid
-    </mat-error>
-  </mat-form-field>
-  <br/><br/>
-  <mat-form-field appearance="legacy">
-    <mat-label>Password</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password">
-    <mat-error *ngIf="Password?.invalid && Password?.touched">
-      Password is invalid
-    </mat-error>
-  </mat-form-field>
-  <button mat-icon-button matSuffix (click)="hide=!hide" [attr.aria-label]="'Hide password'"
-      [attr.aria-pressed]="hide">
-    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-  </button>
-  <br/><br/>
-  <button mat-icon-button [disabled]="loginForm.pristine || loginForm.invalid" type="submit">Login</button>
-</form>
+<h2>{{errorMessage}}</h2>
+<mat-card id="loginCard">
+  <mat-card-title>
+    Login
+    <mat-icon class="material-icons md-24 icon-right" (click)="openDialog();" title="Password Help">help</mat-icon>
+  </mat-card-title>
+  <br/>
+  <mat-card-content>
+    <form [formGroup]="loginForm">
+      <mat-form-field appearance="legacy" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="Email" required>
+        <mat-error *ngIf="Email.invalid">{{getEmailErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <br/><br/>
+      <mat-form-field appearance="legacy" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" required>
+        <button mat-icon-button matSuffix (click)="hide=!hide" [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="Email.invalid">{{getPasswordErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <br/><br/>
+      <button mat-raised-button color="warn" [routerLink]="'/register/create'" id="registerButton">Register</button>
+      <button mat-raised-button color="primary" (click)="login()" [disabled]="loginForm.invalid">Login</button>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,44 @@
+#card-header {
+  margin-left: -5%;
+  margin-right: -9%;
+}
+
+#todoForm {
+  width: 130%;
+}
+
+.todo-add {
+  max-width: 600px;
+  margin: 1% auto auto 33%;
+  min-height: 50%;
+}
+
+.add-item-input {
+  width: 70%;
+  margin-right: 5px;
+}
+
+.add-importance-input {
+  height: auto;
+  width: 20%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.list-table {
+  width: 100%;
+}
+
+.mat-column-Item {
+  width:60%;
+}
+
+.mat-column-delete {
+  width: 5%;
+}
+
+#addButton {
+  float:right;
+  margin-right:9%;
+  width: 19%;
+}

@@ -1,4 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    box-sizing: border-box;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body, app-root {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-size: 14px;
+    font-family: Roboto, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 5px;
+}
+
+.doit-wrapper {
+    height: 100%;
+    padding: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 0 4px rgba(black, .1);
+}
+
+.doit-inner-wrapper {
+    position: relative;
+    height: 100%;
+}
+
+app-add-todo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: tomato;
+}
+.add-todo-input {
+    font-size: 20px;
+}
+
+.todo-item {
+    padding: 10px 5px;
+    font-size: 20px;
+}

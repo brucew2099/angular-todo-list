@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import Todo from './todo';
 
 @Injectable({
   providedIn: 'root'
@@ -10,34 +12,14 @@ export class TodoService {
 
   constructor(private http:HttpClient) { }
 
-  addTodo(item:string, category:string, importance:number, date:Date, who:string) {
-    const obj = {
-      item, category, importance, date, who, done: false
-    }
-
-    console.log(obj);
-
-    this.http.post(`${this._uri}`, obj).subscribe(res => {
+  addTodo(data: Todo) {
+    this.http.post(`${this._uri}`, data).subscribe(res => {
       console.log('Item added successfully');
     })
   }
 
-  getTodos() {
-    return this.http.get(`${this._uri}`);
-  }
-
-  editTodo(id:number) {
-    return this.http.get(`${this._uri}/${id}`);
-  }
-
-  updateTodo(id:number, item:string, category:string, importance:number, date:Date, who:string, done:boolean) {
-    const obj = {
-      id, item, category, importance, date, who, done: false
-    }
-    console.log(obj);
-    this.http.put(`${this._uri}/${id}`, obj).subscribe(res => {
-      console.log('Update is successful');
-    })
+  getAllTodos(): Observable<Todo[]> {
+    return this.http.get<Todo[]>(`${this._uri}`);
   }
 
   deleteTodo(id:number) {

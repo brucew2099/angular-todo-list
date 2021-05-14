@@ -7,8 +7,11 @@
     <span class="menu-spacer"></span>
     <div>
       <a mat-button [routerLink]="''"><span class="navMenu">Home</span></a>
-      <a mat-button [routerLink]="'/todos'" [disabled]><span class="navMenu">Create Todo Item</span></a>
-      <a mat-button [routerLink]="'/login'" id="loginLink"><span class="navMenu">Login</span></a>
+      <span id="rightScreen">
+        <span class="navMenu" *ngIf="isLoggedIn()">{{message}}</span>
+        <!-- <a mat-button [routerLink]="'/login'" id="loginLink"><span class="navMenu" *ngIf="isLoggedIn() == true">Login</span></a> -->
+        <a mat-button [routerLink]="'/logout'" id="logoutLink"><span class="navMenu" *ngIf="isLoggedIn()">Logout</span></a>
+      </span>
     </div>
   </mat-toolbar-row>
 
@@ -21,8 +24,7 @@
   <mat-sidenav #sidenav>
     <mat-nav-list>
       <a mat-list-item [routerLink]="''"><span class="navMenu">Home</span></a>
-      <a mat-list-item [routerLink]="'/todos'" [disabled]><span class="navMenu">Create Todo Item</span></a>
-      <a mat-list-item [routerLink]="'/login'"><span class="navMenu">Login</span></a>
+      <a mat-list-item [routerLink]="'/logout'"><span class="navMenu">Logout</span></a>
       <a mat-list-item (click)="sidenav.toggle()" href="" mat-list-item><span class="navMenu">Close</span></a>
     </mat-nav-list>
   </mat-sidenav>

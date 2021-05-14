@@ -12,26 +12,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './login.service';
 import { TodoService } from './todo.service';
 import { RegisterService } from './register.service';
-import { TodoAddComponent } from './todo-add/todo-add.component';
-import { TodoDeleteComponent } from './todo-delete/todo-delete.component';
-import { TodoGetComponent } from './todo-get/todo-get.component';
-import { TodoEditComponent } from './todo-edit/todo-edit.component';
 import { MemberRegisterAddComponent } from './member-register-add/member-register-add.component';
-import { MemberRegisterEditComponent } from './member-register-edit/member-register-edit.component';
-import { MemberRegisterGetComponent } from './member-register-get/member-register-get.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
+import { HelpDialogComponent } from './help-dialog/help-dialog.component';
+import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { LocalStorageService } from './local-storage.service';
+import { MemberLogoutComponent } from './member-logout/member-logout.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MemberLoginComponent,
     NotFoundComponent,
-    TodoAddComponent,
-    TodoDeleteComponent,
-    TodoGetComponent,
-    TodoEditComponent,
     MemberRegisterAddComponent,
-    MemberRegisterEditComponent,
-    MemberRegisterGetComponent
+    TodoListComponent,
+    HelpDialogComponent,
+    MemberLogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +37,10 @@ import { MemberRegisterGetComponent } from './member-register-get/member-registe
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
-  providers: [LoginService, TodoService, RegisterService],
+  providers: [LoginService, TodoService, RegisterService, MatDialog, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

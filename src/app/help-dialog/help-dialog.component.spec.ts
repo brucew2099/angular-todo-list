@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TodoAddComponent } from './todo-add.component';
+import { HelpDialogComponent } from './help-dialog.component';
 
-describe('TodoAddComponent', () => {
-  let component: TodoAddComponent;
-  let fixture: ComponentFixture<TodoAddComponent>;
+describe('HelpDialogComponent', () => {
+  let component: HelpDialogComponent;
+  let fixture: ComponentFixture<HelpDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TodoAddComponent ]
+      declarations: [ HelpDialogComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TodoAddComponent);
+    fixture = TestBed.createComponent(HelpDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
