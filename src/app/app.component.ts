@@ -20,7 +20,8 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.ls.currentMessage.subscribe(message => {
       this.message = message;
-    })
+    });
+    this.isHomePage();
   }
 
   ngOnDestroy() {
@@ -34,8 +35,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   isHomePage() {
-    let currentRoute = this.router.url;
-    return currentRoute === '/';
+    let currentRoute = window.location.pathname;
+    return currentRoute === '/' || currentRoute === '/404';
   }
 
   register() {
