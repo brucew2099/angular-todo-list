@@ -20,7 +20,7 @@
             [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
-        <mat-error *ngIf="Email.invalid">{{getPasswordErrorMessage()}}</mat-error>
+        <mat-error *ngIf="Password.invalid">{{getPasswordErrorMessage()}}</mat-error>
       </mat-form-field>
       <br/><br/>
       <button mat-raised-button color="warn" (click)="register()" id="registerButton">Register</button>
